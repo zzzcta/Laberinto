@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; //Necesario para cambiar de escenas
 
-public class CambioDeEscena : MonoBehaviour
+public class CambioEscena : MonoBehaviour
 {
     // Nombre de la escena a la que cambiar (no me va poniendo el nombre de la escena)
     public string nombreEscena;
