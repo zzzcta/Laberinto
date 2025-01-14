@@ -41,7 +41,7 @@ public class fresasÑam : MonoBehaviour
             {
                 audioSource.Play();
             }
-            Destroy(gameObject, 0.5f);  //Destruye la fresa y deja un poco de tiempo para que suene el sonido que lleva.
+            Destroy(gameObject, 0.3f);  //Destruye la fresa y deja un poco de tiempo para que suene el sonido que lleva.
         }
     }
 }
