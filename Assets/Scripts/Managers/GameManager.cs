@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public int fresasParaGanar = 5; // Numero de fresas para ganar
 
     public GameObject uiFresasConseguidas; // UI para terminar el juego "temporal"
-    public GameObject Player;
 
     void Awake()
     {
@@ -33,6 +32,7 @@ public class GameManager : MonoBehaviour
         {
             terminarJuego();
         }
+
     }
 
     private void terminarJuego()
@@ -41,5 +41,4 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0; // Detener el tiempo
     }
 
-    
 }

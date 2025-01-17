@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class fresasÑam : MonoBehaviour
@@ -25,7 +23,6 @@ public class fresasÑam : MonoBehaviour
         // Movimiento de subir y bajar usando Mathf.Sin
         float nuevaY = posicionInicial.y + Mathf.Sin(Time.time * velocidadMovimiento) * alturaMovimiento;
         transform.position = new Vector3(posicionInicial.x, nuevaY, posicionInicial.z);
-
         transform.Rotate(Vector3.up * velocidadRotacion * Time.deltaTime); //Rotacion alrededor del eje Y
     }
 
