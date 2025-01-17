@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class fresasÑam : MonoBehaviour
 {
+    [SerializeField] private GameManagerSO gM;
+
     public float velocidadMovimiento = 1f; // 
     public float alturaMovimiento = 0.5f;  // Para el movimiento vertical y rotacion de la fresa
     public float velocidadRotacion = 50f;  // 
@@ -14,7 +16,6 @@ public class fresasÑam : MonoBehaviour
     void Start()
     {
         posicionInicial = transform.position;  //Guarda la posición inicial de la fresa
-
         audioSource = GetComponent<AudioSource>(); //Coge el componente de audio
     }
 
@@ -31,7 +32,7 @@ public class fresasÑam : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             FindObjectOfType<FresaUI>().ComerFresa();   //Llamar al sistema de puntuacion
-            GameManager.instance.RecolectarFresa(); 
+            gM.RecolectarFresa();
 
             // Reproduce el sonido
             if (audioSource != null)

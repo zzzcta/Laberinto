@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff05a549ab2d874190b81652ffdd320, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
+  fresas: 5
+  fresasGanar: 5
+  fresasRecolectadas: 0
+  fresasParaGanar: 5

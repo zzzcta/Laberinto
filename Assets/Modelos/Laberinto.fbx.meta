@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: 9a415656f0a155b4db6d0fb03b4f0213
+guid: e87fde958df5351488333b07d75880f7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: paredEntrada
-    second: {fileID: 2100000, guid: e0a22315bc99d5a45a4fb391d3a97015, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: paredesLab
-    second: {fileID: 2100000, guid: a8d283da9166c3c4f822fe8f7907c3e1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sueloLab.001
-    second: {fileID: 2100000, guid: 2f959c4df73c04042b9f3bbd01905e86, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: techoLab.001
-    second: {fileID: 2100000, guid: 2f959c4df73c04042b9f3bbd01905e86, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -55,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 2
+    globalScale: 1
     meshCompression: 0
     addColliders: 1
     useSRGBMaterialColor: 1
@@ -110,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.02
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
