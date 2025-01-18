@@ -27,7 +27,7 @@ public class Puertas : MonoBehaviour
     {
         if (abrir)
         {
-            transform.Translate(Vector3.down * 5 * Time.deltaTime);
+            transform.Translate(Vector3.back * 5 * Time.deltaTime);
         }
     }
 }

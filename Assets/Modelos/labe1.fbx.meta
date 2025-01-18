@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: e87fde958df5351488333b07d75880f7
+guid: 8514e1a18fef3364287481910bbfa4e6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ParedesInte
+    second: {fileID: 2100000, guid: e0a22315bc99d5a45a4fb391d3a97015, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: paredesLab
+    second: {fileID: 2100000, guid: a8d283da9166c3c4f822fe8f7907c3e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sueloLab.001
+    second: {fileID: 2100000, guid: 2f959c4df73c04042b9f3bbd01905e86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: techoLab.001
+    second: {fileID: 2100000, guid: 2f959c4df73c04042b9f3bbd01905e86, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
