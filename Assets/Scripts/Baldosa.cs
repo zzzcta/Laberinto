@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class Baldosa : MonoBehaviour
@@ -9,8 +8,6 @@ public class Baldosa : MonoBehaviour
     {
         initialPosition = transform.position;
     }
-
-
 
     private void OnTriggerEnter(Collider other)
     {

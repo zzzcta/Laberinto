@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     CharacterController controller = null;   // CharacterController para manejar el movimiento
     float camaraPitch = 0.0f; //    Controla la inclinación vertical de la cámara
     float velocityY = 0.0f;//   Velocidad vertical del jugador para calcular la caída
-    private bool Live = true;
 
     void Start()
     {
@@ -31,12 +30,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Live)
-        {
-            updateMouseLook();  //Llamada a los metodos 
-            updateMovement();
-        }
-
+        updateMouseLook();  //Llamada a los metodos 
+        updateMovement();
     }
 
     //Controla el movimiento de la cámara según la entrada del ratón
@@ -63,11 +58,6 @@ public class Player : MonoBehaviour
         velocityY += gravity * Time.deltaTime;  //Aplica la gravedad al jugador
 
         controller.Move(velocity * Time.deltaTime);   //Mueve al jugador segun la velocidad calculada
-    }
-
-    public void SetLiveState(bool state)
-    {
-        Live = state;
     }
 
 }

@@ -74,7 +74,7 @@ pixel_t VertShader(vertex_t input)
     output.param = float4(0.5 - weight, 1.3333 * _GradientScale * (_Sharpness + 1) / _TextureWidth, _OutlineWidth * _ScaleRatioA * 0.5, 0);
 
     float2 mask = float2(0, 0);
-    #if UNITY_UI_CLIP_RECT
+    #if UNITY_UI_Clip_RECT
     mask = vert.xy * 2 - clampedRect.xy - clampedRect.zw;
     #endif
     output.mask = mask;
@@ -139,7 +139,7 @@ float4 PixShader(pixel_t input) : SV_Target
     #endif
 
     // Alternative implementation to UnityGet2DClipping with support for softness
-    #if UNITY_UI_CLIP_RECT
+    #if UNITY_UI_Clip_RECT
     float2 maskZW = 0.25 / (0.25 * half2(_MaskSoftnessX, _MaskSoftnessY) + (1 / scale));
     float2 m = saturate((_ClipRect.zw - _ClipRect.xy - abs(input.mask.xy)) * maskZW);
     faceColor *= m.x * m.y;
@@ -149,8 +149,8 @@ float4 PixShader(pixel_t input) : SV_Target
     faceColor *= input.texcoord2.z;
     #endif
 
-    #if UNITY_UI_ALPHACLIP
-    clip(faceColor.a - 0.001);
+    #if UNITY_UI_ALPHAClip
+    Clip(faceColor.a - 0.001);
     #endif
 
     return faceColor;

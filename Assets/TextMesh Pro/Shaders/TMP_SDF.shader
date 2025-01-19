@@ -119,8 +119,8 @@ SubShader {
 		#pragma shader_feature __ UNDERLAY_ON UNDERLAY_INNER
 		#pragma shader_feature __ GLOW_ON
 
-		#pragma multi_compile __ UNITY_UI_CLIP_RECT
-		#pragma multi_compile __ UNITY_UI_ALPHACLIP
+		#pragma multi_compile __ UNITY_UI_Clip_RECT
+		#pragma multi_compile __ UNITY_UI_ALPHAClip
 
 		#include "UnityCG.cginc"
 		#include "UnityUI.cginc"
@@ -240,7 +240,7 @@ SubShader {
 			float c = tex2D(_MainTex, input.atlas).a;
 
 		#ifndef UNDERLAY_ON
-			clip(c - input.param.x);
+			Clip(c - input.param.x);
 		#endif
 
 			float	scale	= input.param.y;
@@ -296,13 +296,13 @@ SubShader {
 		#endif
 
 		// Alternative implementation to UnityGet2DClipping with support for softness.
-		#if UNITY_UI_CLIP_RECT
+		#if UNITY_UI_Clip_RECT
 			half2 m = saturate((_ClipRect.zw - _ClipRect.xy - abs(input.mask.xy)) * input.mask.zw);
 			faceColor *= m.x * m.y;
 		#endif
 
-		#if UNITY_UI_ALPHACLIP
-			clip(faceColor.a - 0.001);
+		#if UNITY_UI_ALPHAClip
+			Clip(faceColor.a - 0.001);
 		#endif
 
   		return faceColor * input.color.a;

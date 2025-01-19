@@ -91,8 +91,8 @@ SubShader {
 		#pragma shader_feature __ OUTLINE_ON
 		#pragma shader_feature __ UNDERLAY_ON UNDERLAY_INNER
 
-		#pragma multi_compile __ UNITY_UI_CLIP_RECT
-		#pragma multi_compile __ UNITY_UI_ALPHACLIP
+		#pragma multi_compile __ UNITY_UI_Clip_RECT
+		#pragma multi_compile __ UNITY_UI_ALPHAClip
 
 
 		#include "UnityCG.cginc"
@@ -113,7 +113,7 @@ SubShader {
 			fixed4	outlineColor	: COLOR1;
 			float4	texcoord0		: TEXCOORD0;			// Texture UV, Mask UV
 			half4	param			: TEXCOORD1;			// Scale(x), BiasIn(y), BiasOut(z), Bias(w)
-			half4	mask			: TEXCOORD2;			// Position in clip space(xy), Softness(zw)
+			half4	mask			: TEXCOORD2;			// Position in Clip space(xy), Softness(zw)
 		#if (UNDERLAY_ON | UNDERLAY_INNER)
 			float4	texcoord1		: TEXCOORD3;			// Texture UV, alpha, reserved
 			half2	underlayParam	: TEXCOORD4;			// Scale(x), Bias(y)
@@ -218,7 +218,7 @@ SubShader {
 		#endif
 
 		// Alternative implementation to UnityGet2DClipping with support for softness.
-		//#if UNITY_UI_CLIP_RECT
+		//#if UNITY_UI_Clip_RECT
 			half2 m = saturate((_ClipRect.zw - _ClipRect.xy - abs(input.mask.xy)) * input.mask.zw);
 			c *= m.x * m.y;
 		//#endif
@@ -233,8 +233,8 @@ SubShader {
 			c *= input.texcoord1.z;
 		#endif
 
-    #if UNITY_UI_ALPHACLIP
-			clip(c.a - 0.001);
+    #if UNITY_UI_ALPHAClip
+			Clip(c.a - 0.001);
 		#endif
 
 			return c;

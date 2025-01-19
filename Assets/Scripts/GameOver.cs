@@ -1,25 +1,16 @@
-using System;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
-
-[CreateAssetMenu(menuName = "GameManagerSO")]
-public class GameManagerSO : ScriptableObject
+public class GameOver : MonoBehaviour
 {
-  
+    [SerializeField] private GameEventSO gE;
+    [SerializeField] private GameObject uiTerminarJuego;
     [SerializeField] private int fresasRecolectadas = 0;
     [SerializeField] private int fresasParaGanar = 5;
 
-    public event Action <int> OnBaldosaPulsada;
-    public void BaldosaPulsada(int idBaldosa)
-    {
-        OnBaldosaPulsada?.Invoke(idBaldosa);
-    }
-
     private void OnEnable()
     {
-        fresasRecolectadas = 0;
-        fresasParaGanar = 5;
+       gE.OnFresaComida += RecolectarFresa;
     }
     public void RecolectarFresa()
     {
@@ -30,11 +21,10 @@ public class GameManagerSO : ScriptableObject
         {
             terminarJuego();
         }
-
     }
     private void terminarJuego()
     {
-        
+        uiTerminarJuego.SetActive(true);
         Time.timeScale = 0; // Detener el tiempo
     }
 

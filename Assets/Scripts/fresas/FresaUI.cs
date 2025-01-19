@@ -1,18 +1,25 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FresaUI : MonoBehaviour
 {
+    [SerializeField] GameEventSO gE;
     public Image[] fresasUI; // Array que contiene las imagenes de las fresas
     private int fresasRestantes; // Contador de fresas restantes
 
-    void Start()
+    public void OnEnable()
     {
-        // Inicializa el contador de fresas restantes con el total de imagenes que haya
         fresasRestantes = fresasUI.Length;
+        gE.OnFresaComida += uiFresa;
+        
     }
 
-    public void ComerFresa()
+    public void OnDisable()
+    {
+        gE.OnFresaComida -= uiFresa;
+    }
+    public void uiFresa()
     {
         // Comprueba si aún quedan fresas por ocultar
         if (fresasRestantes > 0)

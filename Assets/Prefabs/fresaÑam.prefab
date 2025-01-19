@@ -195,9 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f2d584f9382e24bb85325a7d5c24d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadMovimiento: 1
-  alturaMovimiento: 0.5
-  velocidadRotacion: 50
+  gE: {fileID: 11400000, guid: bf5c6778703b5b14a841829054564fee, type: 2}
+  cM: {fileID: 11400000, guid: b03275690a3de194389041ccda8fa16c, type: 2}
 --- !u!64 &5844280869093453823
 MeshCollider:
   m_ObjectHideFlags: 0

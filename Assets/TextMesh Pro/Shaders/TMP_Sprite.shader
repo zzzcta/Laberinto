@@ -15,7 +15,7 @@ Shader "TextMeshPro/Sprite"
 		_ColorMask ("Color Mask", Float) = 15
 		_ClipRect ("Clip Rect", vector) = (-32767, -32767, 32767, 32767)
 
-		[Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
+		[Toggle(UNITY_UI_ALPHAClip)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
 	}
 
 	SubShader
@@ -56,8 +56,8 @@ Shader "TextMeshPro/Sprite"
 			#include "UnityCG.cginc"
 			#include "UnityUI.cginc"
 
-            #pragma multi_compile __ UNITY_UI_CLIP_RECT
-            #pragma multi_compile __ UNITY_UI_ALPHACLIP
+            #pragma multi_compile __ UNITY_UI_Clip_RECT
+            #pragma multi_compile __ UNITY_UI_ALPHAClip
 			
 			struct appdata_t
 			{
@@ -100,12 +100,12 @@ Shader "TextMeshPro/Sprite"
 			{
 				half4 color = (tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) * IN.color;
 				
-                #ifdef UNITY_UI_CLIP_RECT
+                #ifdef UNITY_UI_Clip_RECT
 					color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
 				#endif
 
-				#ifdef UNITY_UI_ALPHACLIP
-					clip (color.a - 0.001);
+				#ifdef UNITY_UI_ALPHAClip
+					Clip (color.a - 0.001);
 				#endif
 
 				return color;

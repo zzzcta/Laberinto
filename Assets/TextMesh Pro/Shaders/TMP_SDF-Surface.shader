@@ -146,7 +146,7 @@ SubShader {
 		float4 frag(v2f i) : COLOR
 		{
 			fixed4 texcol = tex2D(_MainTex, i.uv).a;
-			clip(texcol.a - i.alphaClip);
+			Clip(texcol.a - i.alphaClip);
 			SHADOW_CASTER_FRAGMENT(i)
 		}
 		ENDCG

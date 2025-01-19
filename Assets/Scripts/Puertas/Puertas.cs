@@ -1,31 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Puertas : MonoBehaviour
 {
-    [SerializeField] private GameManagerSO gM;
+    [SerializeField] private GameEventSO gE;
     [SerializeField] private int idPuerta;
 
     private bool abrir = false;
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        gM.OnBaldosaPulsada += Abrir;
+        gE.OnBaldosaPulsada += Abrir;
     }
 
-    private void Abrir(int idBaldosa)
+    private void OnDisable()
     {
-        if(idBaldosa == idPuerta)
+        gE.OnBaldosaPulsada -= Abrir; 
+    }
+    private void Abrir(int idBaldosa) 
+    {
+        if(idBaldosa == idPuerta)  
         {
             abrir = true;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() 
     {
-        if (abrir)
+        if (abrir) 
         {
             transform.Translate(Vector3.back * 5 * Time.deltaTime);
         }

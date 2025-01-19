@@ -49,8 +49,8 @@ SubShader{
 		#pragma vertex vert
 		#pragma fragment frag
 
-		#pragma multi_compile __ UNITY_UI_CLIP_RECT
-		#pragma multi_compile __ UNITY_UI_ALPHACLIP
+		#pragma multi_compile __ UNITY_UI_Clip_RECT
+		#pragma multi_compile __ UNITY_UI_ALPHAClip
 
 
 		#include "UnityCG.cginc"
@@ -124,13 +124,13 @@ SubShader{
 			color = fixed4 (tex2D(_FaceTex, IN.texcoord1).rgb * IN.color.rgb, IN.color.a * color.a);
 
 			// Alternative implementation to UnityGet2DClipping with support for softness.
-			#if UNITY_UI_CLIP_RECT
+			#if UNITY_UI_Clip_RECT
 				half2 m = saturate((_ClipRect.zw - _ClipRect.xy - abs(IN.mask.xy)) * IN.mask.zw);
 				color *= m.x * m.y;
 			#endif
 
-			#if UNITY_UI_ALPHACLIP
-				clip(color.a - 0.001);
+			#if UNITY_UI_ALPHAClip
+				Clip(color.a - 0.001);
 			#endif
 
 			return color;
