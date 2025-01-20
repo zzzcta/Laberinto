@@ -12,6 +12,7 @@ public class FresaSpin : MonoBehaviour
         if (rotatingEffect != null)
         {
             gE.FresaSpinComida();
+            FindAnyObjectByType<AudioManager>().Play("FresaSpin");
             Destroy(gameObject); // Eliminar el comestible
         }
     }
