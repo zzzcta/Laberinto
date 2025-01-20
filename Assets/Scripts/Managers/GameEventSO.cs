@@ -21,4 +21,9 @@ public class GameEventSO : ScriptableObject
     {
         OnFresaSpinComida?.Invoke();
     }
+    public event Action OnDead;
+    internal void Dead()
+    {
+        OnDead?.Invoke();
+    }
 }

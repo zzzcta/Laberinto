@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Laberinto.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/LabDeadMenu.unity
+    guid: 8441b6348b2496540a237854caed8856
   m_configObjects: {}
