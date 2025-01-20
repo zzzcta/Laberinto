@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     // Referencia a la camara del jugador
     [SerializeField] Transform playerCamera = null; 

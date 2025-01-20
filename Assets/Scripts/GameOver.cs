@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class GameOver : MonoBehaviour
@@ -10,7 +9,7 @@ public class GameOver : MonoBehaviour
 
     private void OnEnable()
     {
-       gE.OnFresaComida += RecolectarFresa;
+       gE.OnFresa—amComida += RecolectarFresa;
     }
     public void RecolectarFresa()
     {

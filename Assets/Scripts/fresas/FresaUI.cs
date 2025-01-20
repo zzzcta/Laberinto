@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,13 +10,13 @@ public class FresaUI : MonoBehaviour
     public void OnEnable()
     {
         fresasRestantes = fresasUI.Length;
-        gE.OnFresaComida += uiFresa;
+        gE.OnFresa—amComida += uiFresa;
         
     }
 
     public void OnDisable()
     {
-        gE.OnFresaComida -= uiFresa;
+        gE.OnFresa—amComida -= uiFresa;
     }
     public void uiFresa()
     {

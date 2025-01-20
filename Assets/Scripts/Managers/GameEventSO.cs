@@ -10,9 +10,15 @@ public class GameEventSO : ScriptableObject
         OnBaldosaPulsada?.Invoke(idBaldosa);
     }
 
-    public event Action OnFresaComida; 
-    public void FresaComida()
+    public event Action OnFresa—amComida; 
+    public void Fresa—amComida()
     {
-        OnFresaComida?.Invoke();
+        OnFresa—amComida?.Invoke();
+    }
+
+    public event Action OnFresaSpinComida;
+    public void FresaSpinComida()
+    {
+        OnFresaSpinComida?.Invoke();
     }
 }

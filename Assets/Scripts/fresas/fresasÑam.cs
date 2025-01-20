@@ -3,7 +3,6 @@ using UnityEngine;
 public class fresasÑam : MonoBehaviour
 {
     [SerializeField] private GameEventSO gE;
-    [SerializeField] private CanvasManagerSO cM;
 
     private AudioSource audioSource; // Referencia al AudioSource
 
@@ -16,7 +15,7 @@ public class fresasÑam : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gE.FresaComida();
+            gE.FresaÑamComida();
 
             // Reproduce el sonido
             if (audioSource != null)
