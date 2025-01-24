@@ -32,4 +32,10 @@ public class GameEventSO : ScriptableObject
     {
         OnMerengueMovedizo.Invoke();
     }
+
+    public event Action OnDaño;
+    internal void Daño( )
+    {
+        OnDaño?.Invoke();   
+    }
 }

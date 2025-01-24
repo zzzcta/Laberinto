@@ -15,6 +15,7 @@ public class Puertas : MonoBehaviour
     {
         gE.OnBaldosaPulsada -= Abrir; 
     }
+
     private void Abrir(int idBaldosa) 
     {
         if(idBaldosa == idPuerta)  

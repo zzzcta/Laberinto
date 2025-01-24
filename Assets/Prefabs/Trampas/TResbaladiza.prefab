@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6876767161494849512}
   - component: {fileID: 4750452703987004897}
   - component: {fileID: 1243900646327151435}
-  - component: {fileID: 433190685796508414}
   m_Layer: 0
   m_Name: TResbaladiza
   m_TagString: Untagged
@@ -28,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 163973001718515876}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.33451396, z: -0, w: 0.9423908}
-  m_LocalPosition: {x: 76.05, y: -0.022, z: 101.83}
-  m_LocalScale: {x: 1.9806042, y: 0.1897, z: 3.2199256}
+  m_LocalPosition: {x: 75.7793, y: 0.02, z: 101.7952}
+  m_LocalScale: {x: 2.371179, y: 0.1897, z: 4.166584}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3393230598634964238}
@@ -42,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163973001718515876}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4768762056330827431, guid: 171294a7f2124b1478951db3d7962a7d, type: 3}
 --- !u!23 &1243900646327151435
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -85,27 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &433190685796508414
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163973001718515876}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4245617873483939283
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,8 +112,8 @@ Transform:
   m_GameObject: {fileID: 4245617873483939283}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.05, z: 0}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalPosition: {x: -0, y: 0.93, z: 0.007}
+  m_LocalScale: {x: 1.1172198, y: 1.9032931, z: 0.41959926}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6876767161494849512}
@@ -167,7 +145,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7, y: 1, z: 0.7}
+  m_Size: {x: 0.45, y: 1, z: 0.45}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7663332213295063680
 MonoBehaviour:
