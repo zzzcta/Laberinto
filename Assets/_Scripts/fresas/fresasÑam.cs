@@ -8,7 +8,7 @@ public class fresasÑam : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gE.FresaÑamComida();
+            gE.TriggerFresaComida();
             FindAnyObjectByType<AudioManager>().Play("FresaÑam");
             Destroy(gameObject);
         }

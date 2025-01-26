@@ -10,13 +10,13 @@ public class FresaUI : MonoBehaviour
     public void OnEnable()
     {
         fresasRestantes = fresasUI.Length;
-        gE.OnFresa—amComida += uiFresa;
+        gE.OnFresaComida += uiFresa;
         
     }
 
     public void OnDisable()
     {
-        gE.OnFresa—amComida -= uiFresa;
+        gE.OnFresaComida -= uiFresa;
     }
     public void uiFresa()
     {

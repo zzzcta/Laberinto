@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Referencia a la camara del jugador
+
+    [Header("Movimiento")]
     [SerializeField] Transform playerCamera = null; 
     [SerializeField] float mouseSensivite = 3.5f;   //Sensibilidad del raton para el movimiento de la cámara
     [SerializeField] float walkSpeed = 6.0f;    //Velocidad de movimiento

@@ -4,38 +4,47 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameEventSO", menuName = "Managers/GameEventSO")]
 public class GameEventSO : ScriptableObject
 {
-    public event Action <int> OnBaldosaPulsada;
-    public void BaldosaPulsada(int idBaldosa)
+    // Eventos
+    public event Action<int> OnBaldosaPulsada;
+    public event Action<int> OnPlayerDamaged;
+    public event Action OnFresaComida;
+    public event Action OnFresaSpinComida;
+    public event Action OnEnemyDead;
+    public event Action OnMerengueMovedizo;
+    public event Action OnPlayerDead;
+
+    // Métodos para invocar eventos
+    public void TriggerBaldosaPulsada(int idBaldosa)
     {
         OnBaldosaPulsada?.Invoke(idBaldosa);
     }
-
-    public event Action OnFresaÑamComida; 
-    public void FresaÑamComida()
+    public void TriggerPlayerDamaged(int daño)
     {
-        OnFresaÑamComida?.Invoke();
+        OnPlayerDamaged?.Invoke(daño);
     }
 
-    public event Action OnFresaSpinComida;
-    public void FresaSpinComida()
+    public void TriggerFresaComida()
+    {
+        OnFresaComida?.Invoke();
+    }
+
+    public void TriggerFresaSpinComida()
     {
         OnFresaSpinComida?.Invoke();
     }
-    public event Action OnDead;
-    internal void Dead()
+
+    public void TriggerEnemyDead()
     {
-        OnDead?.Invoke();
+        OnEnemyDead?.Invoke();
     }
 
-    public event Action OnMerengueMovedizo;
-    internal void MerengueMovedizo()
+    public void TriggerMerengueMovedizo()
     {
-        OnMerengueMovedizo.Invoke();
+        OnMerengueMovedizo?.Invoke();
     }
 
-    public event Action OnDaño;
-    internal void Daño( )
+    public void PlayerDead()
     {
-        OnDaño?.Invoke();   
+        OnPlayerDead?.Invoke();
     }
 }

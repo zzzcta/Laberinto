@@ -8,8 +8,7 @@ public class TriggerCarrot : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            FindAnyObjectByType<AudioManager>().Play("Hurt");
-            gE.Daño();
+            gE.TriggerPlayerDamaged(1);
         }
     }
 }

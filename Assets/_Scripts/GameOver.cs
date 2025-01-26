@@ -9,7 +9,7 @@ public class GameOver : MonoBehaviour
 
     private void OnEnable()
     {
-       gE.OnFresa—amComida += RecolectarFresa;
+       gE.OnFresaComida += RecolectarFresa;
     }
     public void RecolectarFresa()
     {
@@ -26,5 +26,4 @@ public class GameOver : MonoBehaviour
         uiTerminarJuego.SetActive(true);
         Time.timeScale = 0; // Detener el tiempo
     }
-
 }

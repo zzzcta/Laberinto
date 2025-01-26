@@ -25,6 +25,6 @@ public class Slip : MonoBehaviour
         await Task.Delay(TimeSpan.FromSeconds(0.5));
         FindAnyObjectByType<AudioManager>().Play("BodyFall");
         await Task.Delay(TimeSpan.FromSeconds(0.3));
-        gE.Dead();
+        gE.TriggerPlayerDamaged(3);
     }
 }

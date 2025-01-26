@@ -45,6 +45,6 @@ public class RotatingEffect : MonoBehaviour
         isRotating = true; // Activar rotación
         yield return new WaitForSeconds(effectDuration); // Esperar el tiempo especificado
         isRotating = false; // Detener rotación
-        gE.Dead();
+        gE.TriggerPlayerDamaged(2);
     }
 }

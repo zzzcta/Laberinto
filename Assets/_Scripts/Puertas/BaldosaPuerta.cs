@@ -9,7 +9,7 @@ public class BaldosaPuerta : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gE.BaldosaPulsada(idBaldosa);
+            gE.TriggerBaldosaPulsada(idBaldosa);
             FindAnyObjectByType<AudioManager>().Play("DoorOpen");
             this.gameObject.SetActive(false);
         }

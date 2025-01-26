@@ -1,35 +1,40 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class uiVida : MonoBehaviour
+public class UIVida : MonoBehaviour
 {
-    [SerializeField] GameEventSO gE;
-    public Image[] vidaUI; // Array que contiene las imagenes de las fresas
-    private int vidasRestantes; // Contador de fresas restantes
+    [SerializeField] private GameEventSO gE;
+    public Image[] vidaUI;
 
-    public void OnEnable()
+    private int vidasRestantes;
+
+    private void OnEnable()
     {
-        vidasRestantes = vidaUI.Length;
-        gE.OnDaño += uiVidaRestar;
-
+        vidasRestantes = vidaUI.Length; // Inicializar vidas según la UI
+        gE.OnPlayerDamaged += ActualizarUI;
+        gE.OnPlayerDead += MostrarGameOver;
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
-        gE.OnDaño -= uiVidaRestar;
+        gE.OnPlayerDamaged -= ActualizarUI;
+        gE.OnPlayerDead -= MostrarGameOver;
     }
-    public void uiVidaRestar()
-    {
-        // Comprueba si aún quedan fresas por ocultar
-        if (vidasRestantes > 0)
-        {
-            vidasRestantes--; // Reduce el contador de fresas
-            vidaUI[vidasRestantes].enabled = false; // Oculta la ultima fresa activa
-        }
 
-        if (vidasRestantes == 0)
+    private void ActualizarUI(int daño)
+    {
+        // Reducir las vidas restantes según el daño recibido
+        vidasRestantes -= daño;
+
+        for (int i = 0; i < vidaUI.Length; i++)
         {
-            gE.Dead();
+            vidaUI[i].enabled = i < vidasRestantes;
         }
+    }
+
+    private void MostrarGameOver()
+    {
+        SceneManager.LoadScene("LabDeadMenu");
     }
 }
