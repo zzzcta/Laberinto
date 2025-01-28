@@ -33,6 +33,8 @@ public class PatrolState : IEnemyState
 
     public void Update(EnemyContext context)
     {
+        context.Animator.SetTrigger("Andando");
+
         // Comprobación de llegada al destino actual
         if (context.Agent.remainingDistance <= 0.5f && puntosDeRuta.Count > 0)
         {
@@ -41,15 +43,25 @@ public class PatrolState : IEnemyState
         }
 
         // Detección del jugador
-        if (Vector3.Distance(context.Agent.transform.position, context.Player.position) <= context.DetectionRadius)
-        {
-            Vector3 direccionHaciaJugador = (context.Player.position - context.Agent.transform.position).normalized;
+        Collider[] collsDetectados = Physics.OverlapSphere(context.Agent.transform.position, context.DetectionRadius, context.QueEsPlayer);
 
-            if (!Physics.Raycast(context.Agent.transform.position, direccionHaciaJugador, context.RangoVision, context.QueEsObstaculo))
+        if (collsDetectados.Length > 0)
+        {
+            Debug.Log("player dentro");
+            Vector3 direccionHaciaJugador = (context.Player.transform.position - context.Agent.transform.position).normalized;
+            Debug.DrawRay(context.Agent.transform.position, direccionHaciaJugador * context.RangoVision, Color.red, 0.1f);
+
+            if (Vector3.Angle(context.Agent.transform.forward, direccionHaciaJugador) <= context.AnguloVision / 2)
             {
-                if (Vector3.Angle(context.Agent.transform.forward, direccionHaciaJugador) <= context.AnguloVision / 2)
+                Debug.Log("DEntro de vision");
+                if (!Physics.Raycast(context.Agent.transform.position, direccionHaciaJugador, context.RangoVision, context.QueEsObstaculo))
                 {
+                    Debug.Log("No obstaculos");
                     context.CoroutineRunner.GetComponent<EnemyAI>().SwitchState(new ChaseState());
+                }
+                else
+                {
+                    Debug.Log("Obstaculos");
                 }
             }
         }
@@ -57,7 +69,6 @@ public class PatrolState : IEnemyState
 
     public void Exit(EnemyContext context)
     {
-
-
+        context.Animator.ResetTrigger("Andando");
     }
 }

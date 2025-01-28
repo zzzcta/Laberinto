@@ -25,6 +25,9 @@ public class AttackState : IEnemyState
             // Si el jugador esta dentro del radio de ataque y ha pasado el intervalo de ataque
             if (Time.time - lastAttackTime >= attackInterval)
             {
+                // Iniciar animación
+
+                context.Animator.SetTrigger("Atacando");
                 context.GameEvent.TriggerPlayerDamaged(damage);  // Llama al evento para aplicar el daño al jugador
                 lastAttackTime = Time.time;  // Reinicia el temporizador de ataque
             }
@@ -34,5 +37,6 @@ public class AttackState : IEnemyState
     public void Exit(EnemyContext context)
     {
         context.Agent.isStopped = false;
+        context.Animator.ResetTrigger("Atacando");
     }
 }

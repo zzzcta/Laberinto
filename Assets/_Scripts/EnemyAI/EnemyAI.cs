@@ -7,7 +7,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] GameEventSO GameEvent;
     public Transform Ruta;  // Puntos de patrulla
     public Transform Player;         // Referencia al jugador
-    public LayerMask Obstaculo;
+    public LayerMask QueEsObstaculo;
+    public LayerMask QueEsPlayer;
     [Header("Enemy Propieties")]
     public float AnguloVision;
     public float DetectionRadius = 10f; // Rango de detección
@@ -22,13 +23,15 @@ public class EnemyAI : MonoBehaviour
         _context = new EnemyContext(
             GetComponent<NavMeshAgent>(),
             Player,
-            Obstaculo,
+            QueEsObstaculo,
+            QueEsPlayer,
             Ruta,
             AnguloVision,
             DetectionRadius,
             AttackRadius,
             this,
-            GameEvent
+            GameEvent,
+            GetComponent<Animator>()
         );
 
         // Iniciar con un estado inicial
@@ -57,6 +60,5 @@ public class EnemyAI : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, AttackRadius);
-
     }
 }
