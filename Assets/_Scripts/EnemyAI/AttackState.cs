@@ -26,7 +26,6 @@ public class AttackState : IEnemyState
             if (Time.time - lastAttackTime >= attackInterval)
             {
                 // Iniciar animación
-
                 context.Animator.SetTrigger("Atacando");
                 context.GameEvent.TriggerPlayerDamaged(damage);  // Llama al evento para aplicar el daño al jugador
                 lastAttackTime = Time.time;  // Reinicia el temporizador de ataque

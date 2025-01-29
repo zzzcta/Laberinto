@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class TriggerCarrot : MonoBehaviour
@@ -9,6 +8,7 @@ public class TriggerCarrot : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             gE.TriggerPlayerDamaged(1);
+            FindAnyObjectByType<AudioManager>().Play("Hurt");
         }
     }
 }

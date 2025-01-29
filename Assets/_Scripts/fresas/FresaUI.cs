@@ -18,6 +18,7 @@ public class FresaUI : MonoBehaviour
     {
         gE.OnFresaComida -= uiFresa;
     }
+
     public void uiFresa()
     {
         // Comprueba si aún quedan fresas por ocultar

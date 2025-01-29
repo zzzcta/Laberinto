@@ -30,10 +30,12 @@ public class Weapon : MonoBehaviour
         if (weaponAnimator != null)
         {
             weaponAnimator.SetTrigger(attackAnimationTrigger);
+            FindAnyObjectByType<AudioManager>().Play("WeaponAttack");
         }
 
         // Ejecutar lógica de daño después de la animación
-        Invoke(nameof(DealDamage), 0.3f); // Ajusta el tiempo según la duración de la animación
+        Invoke(nameof(DealDamage), 0.78f); // Ajusta el tiempo según la duración de la animación
+        
     }
 
     private void DealDamage()

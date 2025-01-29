@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class BaldosaPuerta : MonoBehaviour
 {
     [SerializeField] private GameEventSO gE;

@@ -47,21 +47,14 @@ public class PatrolState : IEnemyState
 
         if (collsDetectados.Length > 0)
         {
-            Debug.Log("player dentro");
             Vector3 direccionHaciaJugador = (context.Player.transform.position - context.Agent.transform.position).normalized;
             Debug.DrawRay(context.Agent.transform.position, direccionHaciaJugador * context.RangoVision, Color.red, 0.1f);
 
             if (Vector3.Angle(context.Agent.transform.forward, direccionHaciaJugador) <= context.AnguloVision / 2)
             {
-                Debug.Log("DEntro de vision");
                 if (!Physics.Raycast(context.Agent.transform.position, direccionHaciaJugador, context.RangoVision, context.QueEsObstaculo))
                 {
-                    Debug.Log("No obstaculos");
                     context.CoroutineRunner.GetComponent<EnemyAI>().SwitchState(new ChaseState());
-                }
-                else
-                {
-                    Debug.Log("Obstaculos");
                 }
             }
         }

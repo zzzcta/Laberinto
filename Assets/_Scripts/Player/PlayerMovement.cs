@@ -32,18 +32,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Verifica si el ratón se mueve
-        Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        if (mouseDelta != Vector2.zero)
+        if (!PauseMenu.isPaused)
         {
-            updateMouseLook(mouseDelta);
-        }
+            // Verifica si el ratón se mueve
+            Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            if (mouseDelta != Vector2.zero)
+            {
+                updateMouseLook(mouseDelta);
+            }
 
-        // Verifica si hay entrada de movimiento
-        Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (inputDir != Vector2.zero)
-        {
-            updateMovement(inputDir);
+            // Verifica si hay entrada de movimiento
+            Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (inputDir != Vector2.zero)
+            {
+                updateMovement(inputDir);
+            }
         }
     }
 

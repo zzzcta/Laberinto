@@ -1,14 +1,10 @@
-using Unity.VisualScripting;
 using UnityEngine;
-
 public class CannonController : MonoBehaviour
 {
-    public GameObject carrotPrefab; // Prefab de la zanahoria
-    public Transform spawnPoint;   // Punto de salida de las zanahorias
-    public float shootForce = 500f; // Fuerza con la que se disparará
-    public float shootInterval = 2f; // Intervalo entre disparos
-
-    private float shootTimer;
+    [SerializeField] private GameObject carrotPrefab; // Prefab de la zanahoria
+    [SerializeField] private Transform spawnPoint;   // Punto de salida de las zanahorias
+    [SerializeField] private float shootInterval = 2f; // Intervalo entre disparos
+    [SerializeField] private float shootTimer;
 
     void Update()
     {
@@ -27,13 +23,6 @@ public class CannonController : MonoBehaviour
     {
         // Crea la zanahoria en el punto de spawn
         GameObject carrot = Instantiate(carrotPrefab, spawnPoint.position, spawnPoint.rotation);
-
-        // Aplica una fuerza al Rigidbody de la zanahoria
-        Rigidbody rb = carrot.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.AddForce(spawnPoint.forward * shootForce);
-        }
+        carrot.transform.Rotate(-90, 0, 0); // Ajusta los valores según sea necesario
     }
 }
-

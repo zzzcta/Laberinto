@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class Puertas : MonoBehaviour
 {
     [SerializeField] private GameEventSO gE;
@@ -23,7 +22,6 @@ public class Puertas : MonoBehaviour
             abrir = true;
         }
     }
-
     void Update() 
     {
         if (abrir) 

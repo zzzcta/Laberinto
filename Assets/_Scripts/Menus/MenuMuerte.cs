@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MenuMuerte : MonoBehaviour
@@ -7,10 +6,8 @@ public class MenuMuerte : MonoBehaviour
     [SerializeField] GameEventSO gE;
     private void Start()
     {
-        // Asegúrate de que el cursor sea visible
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
     }
     public void PlayGame()
     {

@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class GameOver : MonoBehaviour
 {
     [SerializeField] private GameEventSO gE;
@@ -23,6 +22,7 @@ public class GameOver : MonoBehaviour
     }
     private void terminarJuego()
     {
+
         uiTerminarJuego.SetActive(true);
         Time.timeScale = 0; // Detener el tiempo
     }
