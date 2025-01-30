@@ -23,6 +23,6 @@ public class CannonController : MonoBehaviour
     {
         // Crea la zanahoria en el punto de spawn
         GameObject carrot = Instantiate(carrotPrefab, spawnPoint.position, spawnPoint.rotation);
-        carrot.transform.Rotate(-90, 0, 0); // Ajusta los valores según sea necesario
+        carrot.transform.Rotate(-90, 0, 0); // Ajusta los valores para que salga bien
     }
 }

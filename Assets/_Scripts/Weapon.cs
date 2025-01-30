@@ -10,8 +10,14 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform attackPoint; // Punto desde donde se lanza el ataque
     [SerializeField] private float attackRange = 1.5f; // Alcance del ataque
 
+    private AudioManager audioManager;
+
     private bool isAttacking = false;
 
+    private void Start()
+    {
+        audioManager = AudioManager.Instance;
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // Click izquierdo
@@ -22,7 +28,7 @@ public class Weapon : MonoBehaviour
 
     private void PerformAttack()
     {
-        if (isAttacking) return; // Prevenir múltiples ataques simultáneos
+        if (isAttacking) return; // Prevenir multiples ataques simultáneos
 
         isAttacking = true;
 
@@ -30,11 +36,11 @@ public class Weapon : MonoBehaviour
         if (weaponAnimator != null)
         {
             weaponAnimator.SetTrigger(attackAnimationTrigger);
-            FindAnyObjectByType<AudioManager>().Play("WeaponAttack");
+            audioManager.Play("WeaponAttack");
         }
 
-        // Ejecutar lógica de daño después de la animación
-        Invoke(nameof(DealDamage), 0.78f); // Ajusta el tiempo según la duración de la animación
+      
+        Invoke(nameof(DealDamage), 0.78f); // Ajusta el tiempo segun la duración de la animación
         
     }
 
@@ -64,4 +70,3 @@ public class Weapon : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
-

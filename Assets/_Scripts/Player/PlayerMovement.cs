@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
             if (inputDir != Vector2.zero)
             {
                 updateMovement(inputDir);
+ 
             }
         }
     }

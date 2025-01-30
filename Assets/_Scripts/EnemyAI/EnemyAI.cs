@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] GameEventSO GameEvent;
     public Transform Ruta;  // Puntos de patrulla
     public Transform Player;         // Referencia al jugador
-    public LayerMask QueEsObstaculo;
+    public LayerMask QueEsObstaculo;    
     public LayerMask QueEsPlayer;
     [Header("Enemy Propieties")]
     public float AnguloVision;

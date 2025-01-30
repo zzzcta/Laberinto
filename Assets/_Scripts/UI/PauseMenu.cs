@@ -27,11 +27,11 @@ public class PauseMenu : MonoBehaviour
     private void Update()
     {
         // Verificar ESC solo en escenas válidas
-        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+        if (Input.GetKeyDown(KeyCode.P) && !isPaused)
         {
             PauseGame();
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        else if (Input.GetKeyDown(KeyCode.P) && isPaused)
         {
             ResumeGame();
         }

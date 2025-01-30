@@ -1,8 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     [SerializeField] private GameEventSO gE;
-    [SerializeField] private GameObject uiTerminarJuego;
     [SerializeField] private int fresasRecolectadas = 0;
     [SerializeField] private int fresasParaGanar = 5;
 
@@ -22,8 +22,6 @@ public class GameOver : MonoBehaviour
     }
     private void terminarJuego()
     {
-
-        uiTerminarJuego.SetActive(true);
-        Time.timeScale = 0; // Detener el tiempo
+        SceneManager.LoadScene("GameOver");
     }
 }

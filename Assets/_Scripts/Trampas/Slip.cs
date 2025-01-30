@@ -1,5 +1,4 @@
-using System;
-using System.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 
 public class Slip : MonoBehaviour
@@ -16,15 +15,18 @@ public class Slip : MonoBehaviour
             // Activar la animación
             playerAnimator.SetBool("isSlip", true);
             FindAnyObjectByType<AudioManager>().Play("Slip");
-            AwaitFallAndDead();
+
+            // Iniciar la corrutina en lugar de usar async
+            StartCoroutine(FallAndDamage());
         }
     }
 
-    private async void AwaitFallAndDead()
+    private IEnumerator FallAndDamage()
     {
-        await Task.Delay(TimeSpan.FromSeconds(0.5));
+        yield return new WaitForSeconds(0.5f); // Espera 0.5s
         FindAnyObjectByType<AudioManager>().Play("BodyFall");
-        await Task.Delay(TimeSpan.FromSeconds(0.3));
+
+        yield return new WaitForSeconds(0.3f); // Espera 0.3s
         gE.TriggerPlayerDamaged(3);
     }
 }

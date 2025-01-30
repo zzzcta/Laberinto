@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
         gE.OnPlayerDamaged += RecibirDaño;
     }
 
-    public void RecibirDaño(int daño)
+    public void RecibirDaño(int daño)   // Resta la vida del player segun el daño que recibe si llega a < 0 muere
     {
         vidasRestantes -= daño;
 

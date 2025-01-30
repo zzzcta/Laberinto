@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class AttackState : IEnemyState
 {
     [SerializeField] private float attackInterval = 1f;  // Intervalo entre ataques en segundos
